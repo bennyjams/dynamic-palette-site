@@ -1,8 +1,12 @@
+/* test for google fonts */
+
 :root {
   --clr-pri-400: hsl(228, 21%, 14%);
-  --clr-acc-400: hsl(12, 85%, 59%);
+  --clr-acc-300: hsl(12, 88%, 75%);
+  --clr-acc-400: hsl(12, 88%, 59%);
+  --clr-acc-500: hsl(12, 60%, 45%);
   --clr-neu-400: hsl(14, 73%, 86%);
-  --clr-bkg-400: hsl(12, 25%, 88%);
+  --clr-bkg-400: hsl(12, 25%, 90%);
 
   --ff-primary: "Be Vietnam Pro", sans-serif;
 
@@ -105,6 +109,13 @@ svg {
 
 /* GENERAL STYLING */
 
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+  background: var(--clr-bkg-400);
+}
+
 /* button */
 .button {
   display: inline-flex;
@@ -121,7 +132,7 @@ svg {
 
   color: var(--clr-neu-400);
   background-color: var(--clr-acc-400);
-  box-shadow: 0 1.125em 1em -1em var(--clr-acc-400);
+  box-shadow: 0 1.125em 1em -1em var(--clr-acc-500);
 }
 
 .button[data-shadow="none"] {
@@ -135,7 +146,8 @@ svg {
 
 .button:hover,
 .button:focus-visible {
-  background-color: var(--clr-acc-400);
+  background-color: var(--clr-acc-300);
+  color: var(--clr-acc-500);
 }
 
 .button[data-type="inverted"]:hover,
@@ -144,11 +156,27 @@ svg {
   color: var(--clr-acc-400);
 }
 
+/* INDIVIDUAL SECTIONS */
+
+.title-p-button {
+  padding: 1rem;
+}
+.title-p-button h1 {
+}
+.title-p-button p {
+  padding: var(--size-500) 0;
+}
+
+@media (min-width: 50em) {
+  .title-p-button p {
+    padding: var(--size-500) 30% var(--size-500) 0;
+  }
+}
+
 /* UTILITY CLASSES */
 .even-columns {
   display: grid;
   gap: 1rem;
-  background-color: var(--clr-neu-400);
 }
 @media (min-width: 50em) {
   .even-columns {
