@@ -1,38 +1,188 @@
-.App {
-  text-align: center;
+:root {
+  --clr-pri-400: hsl(228, 21%, 14%);
+  --clr-acc-400: hsl(12, 85%, 59%);
+  --clr-neu-400: hsl(14, 73%, 86%);
+  --clr-bkg-400: hsl(12, 25%, 88%);
+
+  --ff-primary: "Be Vietnam Pro", sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-800);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+}
+/* https://piccalil.li/blog/a-modern-css-reset*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* GENERAL STYLING */
+
+/* button */
+.button {
+  display: inline-flex;
+
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 100vmax;
+  padding: 1.25em 2.5em;
+
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1;
+
+  color: var(--clr-neu-400);
+  background-color: var(--clr-acc-400);
+  box-shadow: 0 1.125em 1em -1em var(--clr-acc-400);
 }
 
-.App-link {
-  color: #61dafb;
+.button[data-shadow="none"] {
+  box-shadow: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button[data-type="inverted"] {
+  background-color: var(--clr-neu-400);
+  color: var(--clr-acc-400);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-acc-400);
+}
+
+.button[data-type="inverted"]:hover,
+.button[data-type="inverted"]:focus-visible {
+  background-color: var(--clr-neu-400);
+  color: var(--clr-acc-400);
+}
+
+/* UTILITY CLASSES */
+.even-columns {
+  display: grid;
+  gap: 1rem;
+  background-color: var(--clr-neu-400);
+}
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.text-primary-400 {
+  color: var(--clr-pri-400);
+}
+.text-accent-400 {
+  color: var(--clr-acc-400);
+}
+.text-neutral-400 {
+  color: var(--clr-neu-400);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fs-primary-heading {
+  font-size: var(--fs-primary-heading);
+  line-height: 1.1;
+}
+
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+  line-height: 1.1;
 }
