@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 let root = document.querySelector(":root");
@@ -42,11 +41,29 @@ function RegularSection() {
         <h1 className="fs-primary-heading fw-bold text-primary-400">
           Bring everyone together to build better products.
         </h1>
-        <p>
+        <p className="text-primary-400">
           Manage makes it simple for software teams to plan day-to-day tasks
           while keeping the larger team goals in view.
         </p>
         <button onClick={setPalette} className="button">
+          Let's Go!
+        </button>
+      </div>
+    </>
+  );
+}
+function InvertedRegularSection() {
+  return (
+    <>
+      <div className="title-p-button">
+        <h1 className="fs-primary-heading fw-bold text-background-400">
+          Bring everyone together to build better products.
+        </h1>
+        <p className="text-background-400">
+          Manage makes it simple for software teams to plan day-to-day tasks
+          while keeping the larger team goals in view.
+        </p>
+        <button onClick={setPalette} className="button" data-type="inverted">
           Let's Go!
         </button>
       </div>
@@ -60,6 +77,10 @@ function App() {
       <div className="even-columns">
         {RegularSection()}
         {RegularSection()}
+      </div>
+      <div className="even-columns | bg-accent-400">
+        {InvertedRegularSection()}
+        {InvertedRegularSection()}
       </div>
     </>
   );

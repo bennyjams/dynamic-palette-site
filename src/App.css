@@ -140,8 +140,8 @@ body {
 }
 
 .button[data-type="inverted"] {
-  background-color: var(--clr-neu-400);
-  color: var(--clr-acc-400);
+  background-color: var(--clr-bkg-400);
+  color: var(--clr-pri-400);
 }
 
 .button:hover,
@@ -152,7 +152,7 @@ body {
 
 .button[data-type="inverted"]:hover,
 .button[data-type="inverted"]:focus-visible {
-  background-color: var(--clr-neu-400);
+  background-color: var(--clr-bkg-400);
   color: var(--clr-acc-400);
 }
 
@@ -171,6 +171,12 @@ body {
   .title-p-button p {
     padding: var(--size-500) 30% var(--size-500) 0;
   }
+}
+
+/* FOOTER */
+
+.primary-footer {
+  min-height: 200px;
 }
 
 /* UTILITY CLASSES */
@@ -200,6 +206,13 @@ body {
   }
 }
 
+.bg-primary-400 {
+  background-color: var(--clr-pri-400);
+}
+.bg-accent-400 {
+  background-color: var(--clr-acc-400);
+}
+
 .text-primary-400 {
   color: var(--clr-pri-400);
 }
@@ -208,6 +221,9 @@ body {
 }
 .text-neutral-400 {
   color: var(--clr-neu-400);
+}
+.text-background-400 {
+  color: var(--clr-bkg-400);
 }
 
 .fw-bold {

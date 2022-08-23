@@ -4,7 +4,7 @@ export function Header() {
   return (
     <>
       <header className="primary-header">
-        <div className="container">
+        <div className="container | visually-hidden">
           <div className="nav-wrapper">
             <a href="#">Logo Here</a>
             <button
@@ -13,11 +13,12 @@ export function Header() {
               aria-expanded="false"
             >
               <svg className="icon-hamburger" width={50} height={50}>
-                <use href="../../images/menu.svg"></use>
+                <use xlinkHref="../../images/menu.svg#menu"></use>
               </svg>
               <svg className="icon-close" width={50} height={50}>
-                <use href="../../images/close.svg"></use>
+                <use xlinkHref="../../images/close.svg#close"></use>
               </svg>
+
               <span className="visually-hidden">Menu</span>
             </button>
             <div className="theme-menu-wrapper" id="theme-menu-wrapper">
