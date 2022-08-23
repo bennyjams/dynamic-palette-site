@@ -4,33 +4,47 @@ let root = document.querySelector(":root");
 
 let currentPalette = "standard";
 
-function setPalette() {
+let berry = "#112233";
+// colorAdjust("#123456", 1.2)
+function setPalette(theme) {
+  let standard = {
+    name: "standard",
+    pri: "#1c1f2b",
+    acc: "#f25f3a",
+    neu: "#f5cdc1",
+    bkg: "#ece2df",
+    modUp: 1.1,
+    modDown: 0.9,
+  };
+  let candy = {
+    name: "candy",
+    pri: "#85383c",
+    acc: "#f296c3",
+    neu: "#f7c0b9",
+    bkg: "#ecf8ff",
+    modUp: 1.1,
+    modDown: 0.9,
+  };
+
+  function setColors(theme) {
+    root.setAttribute(
+      "style",
+      `
+      --clr-pri-400: ${theme.pri};
+      --clr-acc-300: ${colorAdjust(theme.acc, theme.modUp)};
+      --clr-acc-400: ${colorAdjust(theme.acc, 1)};
+      --clr-acc-500: ${colorAdjust(theme.acc, theme.modDown)};
+      --clr-neu-400: ${theme.neu};
+      --clr-bkg-400: ${theme.bkg};
+      `
+    );
+    currentPalette = theme.name;
+  }
+
   if (currentPalette === "standard") {
-    root.setAttribute(
-      "style",
-      `
-        --clr-pri-400: #85383c;
-        --clr-acc-300: #fabadf;
-        --clr-acc-400: #f296c3;
-        --clr-acc-500: #f76cad;
-        --clr-neu-400: #f7c0b9;
-        --clr-bkg-400: #ecf8ff;
-      `
-    );
-    currentPalette = "candy";
+    setColors(candy);
   } else {
-    root.setAttribute(
-      "style",
-      `
-        --clr-pri-400: hsl(228, 21%, 14%);
-        --clr-acc-300: hsl(12, 88%, 75%);
-        --clr-acc-400: hsl(12, 88%, 59%);
-        --clr-acc-500: hsl(12, 60%, 45%);
-        --clr-neu-400: hsl(14, 73%, 86%);
-        --clr-bkg-400: hsl(12, 25%, 90%);
-      `
-    );
-    currentPalette = "standard";
+    setColors(standard);
   }
 }
 
@@ -69,6 +83,28 @@ function InvertedRegularSection() {
       </div>
     </>
   );
+}
+
+function colorAdjust(hexValue, multMod) {
+  hexValue = hexValue.slice(1);
+  let arr = [0, 0, 0];
+
+  arr.forEach((el, i, thisArr) => {
+    el = Number("0x" + hexValue.slice(i * 2, i * 2 + 2));
+
+    el *= multMod;
+
+    el > 255 ? (el = 255) : (el = el);
+    el < 0 ? (el = 0) : (el = el);
+
+    el = parseInt(el).toString(16);
+
+    //console.log(el);
+    thisArr[i] = el;
+  });
+
+  //console.log("#" + arr[0] + arr[1] + arr[2]);
+  return "#" + arr[0] + arr[1] + arr[2];
 }
 
 function App() {
