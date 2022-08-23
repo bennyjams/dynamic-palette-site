@@ -10,7 +10,7 @@ function setPalette() {
     root.setAttribute(
       "style",
       `
-        --clr-pri-400: #f96b70;
+        --clr-pri-400: #85383c;
         --clr-acc-300: #fabadf;
         --clr-acc-400: #f296c3;
         --clr-acc-500: #f76cad;
@@ -38,15 +38,15 @@ function setPalette() {
 function RegularSection() {
   return (
     <>
-      <div class="title-p-button">
-        <h1 class="fs-primary-heading fw-bold text-primary-400">
+      <div className="title-p-button">
+        <h1 className="fs-primary-heading fw-bold text-primary-400">
           Bring everyone together to build better products.
         </h1>
         <p>
           Manage makes it simple for software teams to plan day-to-day tasks
           while keeping the larger team goals in view.
         </p>
-        <button onClick={setPalette} class="button">
+        <button onClick={setPalette} className="button">
           Let's Go!
         </button>
       </div>

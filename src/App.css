@@ -130,7 +130,7 @@ body {
   font-size: var(--fs-button);
   line-height: 1;
 
-  color: var(--clr-neu-400);
+  color: var(--clr-pri-400);
   background-color: var(--clr-acc-400);
   box-shadow: 0 1.125em 1em -1em var(--clr-acc-500);
 }
@@ -174,10 +174,25 @@ body {
 }
 
 /* UTILITY CLASSES */
+
+.visually-hidden {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .even-columns {
   display: grid;
   gap: 1rem;
 }
+
 @media (min-width: 50em) {
   .even-columns {
     grid-auto-flow: column;
