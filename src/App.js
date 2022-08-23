@@ -25,6 +25,15 @@ function setPalette(theme) {
     modUp: 1.1,
     modDown: 0.9,
   };
+  let forest = {
+    name: "forest",
+    pri: "#218a69",
+    acc: "#56e3c9",
+    neu: "#6eef81",
+    bkg: "#dcf5f3",
+    modUp: 1.1,
+    modDown: 0.9,
+  };
 
   function setColors(theme) {
     root.setAttribute(
@@ -43,6 +52,8 @@ function setPalette(theme) {
 
   if (currentPalette === "standard") {
     setColors(candy);
+  } else if (currentPalette === "candy") {
+    setColors(forest);
   } else {
     setColors(standard);
   }
