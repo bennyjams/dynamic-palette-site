@@ -1,12 +1,12 @@
 /* test for google fonts */
 
 :root {
-  --clr-pri-400: hsl(228, 21%, 14%);
-  --clr-acc-300: hsl(12, 88%, 75%);
-  --clr-acc-400: hsl(12, 88%, 59%);
-  --clr-acc-500: hsl(12, 60%, 45%);
-  --clr-neu-400: hsl(14, 73%, 86%);
-  --clr-bkg-400: hsl(12, 25%, 90%);
+  --clr-pri-400: #1c1f2b;
+  --clr-acc-300: #f79e87;
+  --clr-acc-400: #f25f3a;
+  --clr-acc-500: #b8492e;
+  --clr-neu-400: #f5cdc1;
+  --clr-bkg-400: #ece2df;
 
   --ff-primary: "Be Vietnam Pro", sans-serif;
 
