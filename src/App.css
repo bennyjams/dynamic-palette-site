@@ -6,7 +6,7 @@
   --clr-acc-400: #f25f3a;
   --clr-acc-500: #b8492e;
   --clr-neu-400: #f5cdc1;
-  --clr-bkg-400: #ece2df;
+  --clr-bkg-400: #f7efec;
 
   --ff-primary: "Be Vietnam Pro", sans-serif;
 
@@ -108,12 +108,16 @@ svg {
 }
 
 /* GENERAL STYLING */
-
 body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--clr-primary-400);
   background: var(--clr-bkg-400);
+}
+
+.container {
+  max-width: 70rem;
+  margin-inline: auto;
 }
 
 /* button */
@@ -177,6 +181,99 @@ body {
 
 .primary-footer {
   min-height: 200px;
+  color: var(--clr-bkg-400);
+}
+
+.footer-logo {
+  grid-area: logo;
+  /* background-color: aqua; */
+}
+.footer-socials {
+  grid-area: socials;
+  /* background-color: rgb(89, 136, 51); */
+}
+.footer-nav {
+  grid-area: links;
+  /* background-color: rgb(97, 39, 89); */
+}
+.footer-input-wrapper {
+  grid-area: input;
+  display: flex;
+  gap: 1rem;
+  height: fit-content;
+  margin-inline: auto;
+  /* background-color: rgb(255, 136, 0); */
+}
+
+.copyright {
+  grid-area: copyright;
+  /* background-color: deeppink; */
+  height: fit-content;
+  margin-inline: auto;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.primary-footer-wrapper {
+  display: grid;
+  margin-inline: auto;
+  position: relative;
+  padding: 1rem;
+
+  min-height: 14rem;
+  width: clamp(25rem, 100%, 100rem);
+
+  gap: var(--size-400);
+
+  grid-template-columns: 3fr 4fr 3fr;
+  grid-template-areas:
+    "logo links input"
+    "socials links copyright";
+}
+
+@media (max-width: 50em) {
+  .primary-footer-wrapper {
+    width: clamp(25rem, 75%, 35rem);
+    margin-inline: auto;
+
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "links"
+      "input"
+      "socials"
+      "copyright";
+  }
+}
+
+/* Footer Items */
+
+.footer-nav {
+  columns: 2;
+}
+.footer-nav a {
+  color: var(--clr-bkg-400);
+  text-decoration: none;
+
+  line-height: 2.5rem;
+  margin: 20rem 0rem;
+}
+.footer-nav a:where(:hover, :focus) {
+  color: var(--clr-acc-400);
+}
+
+.social-icon {
+  width: var(--size-600);
+  aspect-ratio: 1;
+  fill: var(--clr-bkg-400);
+  background-color: red;
+}
+
+.footer-input {
+  border: 0;
+  border-radius: 100vw;
+  padding: var(--size-300) var(--size-400);
 }
 
 /* UTILITY CLASSES */
@@ -197,6 +294,10 @@ body {
 .even-columns {
   display: grid;
   gap: 1rem;
+}
+
+.even-columns[data-type="inverted"] {
+  background-color: var(--clr-acc-400);
 }
 
 @media (min-width: 50em) {

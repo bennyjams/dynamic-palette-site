@@ -5,6 +5,10 @@ let root = document.querySelector(":root");
 let currentPalette = "standard";
 
 let berry = "#112233";
+
+let testHeader = "Bring everyone together to build better products.";
+let testBody = `Manage makes it simple for software teams to plan day-to-day tasks
+while keeping the larger team goals in view.`;
 // colorAdjust("#123456", 1.2)
 function setPalette(theme) {
   let standard = {
@@ -12,7 +16,7 @@ function setPalette(theme) {
     pri: "#1c1f2b",
     acc: "#f25f3a",
     neu: "#f5cdc1",
-    bkg: "#ece2df",
+    bkg: "#f7efec",
     modUp: 1.1,
     modDown: 0.9,
   };
@@ -27,8 +31,8 @@ function setPalette(theme) {
   };
   let forest = {
     name: "forest",
-    pri: "#218a69",
-    acc: "#56e3c9",
+    pri: "#0d5e42",
+    acc: "#3cd19d",
     neu: "#6eef81",
     bkg: "#dcf5f3",
     modUp: 1.1,
@@ -59,17 +63,14 @@ function setPalette(theme) {
   }
 }
 
-function RegularSection() {
+function RegularSection(headerText, bodyText) {
   return (
     <>
       <div className="title-p-button">
         <h1 className="fs-primary-heading fw-bold text-primary-400">
-          Bring everyone together to build better products.
+          {headerText}
         </h1>
-        <p className="text-primary-400">
-          Manage makes it simple for software teams to plan day-to-day tasks
-          while keeping the larger team goals in view.
-        </p>
+        <p className="text-primary-400">{bodyText}</p>
         <button onClick={setPalette} className="button">
           Let's Go!
         </button>
@@ -77,17 +78,14 @@ function RegularSection() {
     </>
   );
 }
-function InvertedRegularSection() {
+function InvertedRegularSection(headerText, bodyText) {
   return (
     <>
       <div className="title-p-button">
         <h1 className="fs-primary-heading fw-bold text-background-400">
-          Bring everyone together to build better products.
+          {headerText}
         </h1>
-        <p className="text-background-400">
-          Manage makes it simple for software teams to plan day-to-day tasks
-          while keeping the larger team goals in view.
-        </p>
+        <p className="text-background-400">{bodyText}</p>
         <button onClick={setPalette} className="button" data-type="inverted">
           Let's Go!
         </button>
@@ -95,6 +93,8 @@ function InvertedRegularSection() {
     </>
   );
 }
+
+function ImageCard() {}
 
 function colorAdjust(hexValue, multMod) {
   hexValue = hexValue.slice(1);
@@ -120,16 +120,16 @@ function colorAdjust(hexValue, multMod) {
 
 function App() {
   return (
-    <>
+    <div className="container">
       <div className="even-columns">
-        {RegularSection()}
-        {RegularSection()}
+        {RegularSection(testHeader, testBody)}
+        {RegularSection(testHeader, testBody)}
       </div>
       <div className="even-columns | bg-accent-400">
-        {InvertedRegularSection()}
-        {InvertedRegularSection()}
+        {InvertedRegularSection(testHeader, testBody)}
+        {InvertedRegularSection(testHeader, testBody)}
       </div>
-    </>
+    </div>
   );
 }
 
