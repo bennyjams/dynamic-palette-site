@@ -193,11 +193,13 @@ body {
 .footer-socials {
   grid-area: socials;
   margin-inline: auto;
+  margin-bottom: 2rem;
   /* background-color: rgb(89, 136, 51); */
 }
 .footer-nav {
   grid-area: links;
   margin-inline: auto;
+  text-align: center;
   min-width: 100%;
   /* background-color: rgb(97, 39, 89); */
 }
@@ -215,8 +217,11 @@ body {
   /* background-color: deeppink; */
   height: fit-content;
   margin-inline: auto;
+  text-align: center;
 
   position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
   bottom: 0;
 }
 
@@ -279,6 +284,12 @@ body {
 }
 .social-icon:where(:hover, :focus) {
   fill: var(--clr-acc-400);
+}
+
+@media (max-width: 50em) {
+  .social-icon {
+    width: var(--size-700);
+  }
 }
 
 .footer-input {
