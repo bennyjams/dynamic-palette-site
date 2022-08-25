@@ -186,14 +186,19 @@ body {
 
 .footer-logo {
   grid-area: logo;
+  margin-inline: auto;
+  font-size: clamp(1.5rem, 3vw, 3rem);
   /* background-color: aqua; */
 }
 .footer-socials {
   grid-area: socials;
+  margin-inline: auto;
   /* background-color: rgb(89, 136, 51); */
 }
 .footer-nav {
   grid-area: links;
+  margin-inline: auto;
+  min-width: 100%;
   /* background-color: rgb(97, 39, 89); */
 }
 .footer-input-wrapper {
@@ -263,11 +268,17 @@ body {
   color: var(--clr-acc-400);
 }
 
+.social-list {
+  display: flex;
+  gap: clamp(0.25rem, 7%, 5rem);
+}
 .social-icon {
   width: var(--size-600);
   aspect-ratio: 1;
   fill: var(--clr-bkg-400);
-  background-color: red;
+}
+.social-icon:where(:hover, :focus) {
+  fill: var(--clr-acc-400);
 }
 
 .footer-input {

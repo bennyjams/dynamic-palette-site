@@ -1,22 +1,38 @@
 import "../App.css";
 
+import { ReactComponent as Github } from "../images/logo-github.svg";
+import { ReactComponent as Css3 } from "../images/logo-css3.svg";
+import { ReactComponent as Html5 } from "../images/logo-html5.svg";
+import { ReactComponent as ReactLogo } from "../images/logo-react.svg";
+import { ReactComponent as Ionic } from "../images/logo-ionic.svg";
+
 export function Footer() {
   return (
     <>
       <footer className="primary-footer | bg-primary-400 text-neutral-400">
         <div className="container">
           <div className="primary-footer-wrapper">
-            <div className="footer-logo">A</div>
+            <div className="footer-logo">LOGO HERE</div>
             <div className="footer-socials">
               <ul
                 className="social-list"
                 role={"list"}
                 aria-label="Social Links"
               >
-                <a>
-                  <svg className="social-icon">
-                    <use xlinkHref="#logo-github"></use>
-                  </svg>
+                <a href="#">
+                  <Github className="social-icon" />
+                </a>
+                <a href="#">
+                  <Html5 className="social-icon" />
+                </a>
+                <a href="#">
+                  <Css3 className="social-icon" />
+                </a>
+                <a href="#">
+                  <ReactLogo className="social-icon" />
+                </a>
+                <a href="https://ionic.io/ionicons">
+                  <Ionic className="social-icon" />
                 </a>
               </ul>
             </div>
