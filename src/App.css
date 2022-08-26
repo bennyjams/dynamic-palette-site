@@ -196,6 +196,7 @@ body {
 }
 
 .mobile-nav-toggle {
+  z-index: 5;
   display: none;
   cursor: pointer;
 
@@ -214,8 +215,30 @@ body {
 
 @media (max-width: 50em) {
   .header-navigation {
-    display: none;
+    position: fixed;
+    padding: 2rem;
+    inset: 5rem 1rem auto;
+
+    z-index: 2;
+
+    max-width: 30rem;
+    margin-inline: auto;
+
+    background: var(--clr-bkg-400);
+    border-radius: 1rem;
+    box-shadow: 0 0 100rem var(--clr-pri-400);
   }
+
+  .nav-list {
+    display: grid;
+    width: 100%;
+  }
+  .nav-list li {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
   .mobile-nav-toggle {
     display: block;
     position: fixed;
