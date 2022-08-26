@@ -7,13 +7,14 @@ export function Header() {
   const [navVisible, setNavVisible] = useState(true);
 
   function HeaderNav() {
+    let navClass = "header-navigation";
     if (!navVisible) {
-      return <></>;
+      navClass += " | hide-small";
     }
 
     return (
       <>
-        <nav className="header-navigation" id="header-navigation">
+        <nav className={navClass} id="header-navigation">
           <ul aria-label="Primary" role={"list"} className="nav-list">
             <li>
               <a className="nav-item" href="#">

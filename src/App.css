@@ -420,6 +420,9 @@ body {
   .display-sm-none {
     display: none;
   }
+  .hide-small {
+    display: none;
+  }
 }
 
 .bg-primary-400 {
