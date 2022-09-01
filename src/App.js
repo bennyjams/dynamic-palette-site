@@ -125,9 +125,11 @@ function App() {
         {RegularSection(testHeader, testBody)}
         {RegularSection(testHeader, testBody)}
       </div>
-      <div className="even-columns | bg-accent-400">
-        {InvertedRegularSection(testHeader, testBody)}
-        {InvertedRegularSection(testHeader, testBody)}
+      <div className="inverted-ribbon">
+        <div className="even-columns | bg-accent-400">
+          {InvertedRegularSection(testHeader, testBody)}
+          {InvertedRegularSection(testHeader, testBody)}
+        </div>
       </div>
     </div>
   );

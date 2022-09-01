@@ -117,8 +117,8 @@ body {
 }
 
 .container {
-  max-width: 70rem;
-  margin-inline: auto;
+  /* max-width: 70rem;
+  margin-inline: auto; */
 }
 
 /* button */
@@ -237,6 +237,10 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
+  }
+
+  .nav-list li a:where(:hover, :focus) {
+    color: var(--clr-acc-400);
   }
 
   .mobile-nav-toggle {
@@ -403,6 +407,9 @@ body {
 .even-columns {
   display: grid;
   gap: 1rem;
+
+  max-width: 70rem;
+  margin-inline: auto;
 }
 
 .even-columns[data-type="inverted"] {
@@ -423,6 +430,10 @@ body {
   .hide-small {
     display: none;
   }
+}
+
+.inverted-ribbon {
+  background-color: var(--clr-acc-400);
 }
 
 .bg-primary-400 {
