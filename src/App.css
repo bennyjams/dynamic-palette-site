@@ -190,6 +190,10 @@ body {
   color: var(--clr-pri-400);
 }
 
+.nav-list li a:where(:hover, :focus) {
+  color: var(--clr-acc-400);
+}
+
 .header-logo {
   font-size: clamp(1.5rem, 4vw, 2rem);
   text-decoration: none;
@@ -237,10 +241,6 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
-  }
-
-  .nav-list li a:where(:hover, :focus) {
-    color: var(--clr-acc-400);
   }
 
   .mobile-nav-toggle {
