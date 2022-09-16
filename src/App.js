@@ -9,6 +9,18 @@ let berry = "#112233";
 let testHeader = "Bring everyone together to build better products.";
 let testBody = `Manage makes it simple for software teams to plan day-to-day tasks
 while keeping the larger team goals in view.`;
+
+function ArbitraryBinary(characters) {
+  let ret = "",
+    bin = ["0", "1", " "];
+
+  for (let i = 0; i < characters; i++) {
+    ret += bin[parseInt(Math.random() * 3)];
+  }
+
+  return ret;
+}
+
 // colorAdjust("#123456", 1.2)
 function setPalette(theme) {
   let standard = {
@@ -127,8 +139,8 @@ function App() {
       </div>
       <div className="inverted-ribbon">
         <div className="even-columns | bg-accent-400">
-          {InvertedRegularSection(testHeader, testBody)}
-          {InvertedRegularSection(testHeader, testBody)}
+          {InvertedRegularSection(testHeader, ArbitraryBinary(200))}
+          {InvertedRegularSection(testHeader, ArbitraryBinary(200))}
         </div>
       </div>
     </div>

@@ -335,7 +335,7 @@ body {
 
 @media (max-width: 50em) {
   .primary-footer-wrapper {
-    width: clamp(25rem, 75%, 35rem);
+    width: min(100%, 35rem);
     margin-inline: auto;
 
     grid-template-columns: 1fr;
@@ -345,6 +345,16 @@ body {
       "input"
       "socials"
       "copyright";
+  }
+
+  .footer-nav {
+    min-width: 50%;
+  }
+  .footer-input-wrapper input {
+    width: 100%;
+  }
+  .footer-socials {
+    margin-bottom: 4rem;
   }
 }
 
