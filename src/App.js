@@ -106,6 +106,24 @@ function InvertedRegularSection(headerText, bodyText) {
   );
 }
 
+function BulletPoints3(text1, text2, text3) {
+  return (
+    <div className="triple-bullet-points">
+      <ul>
+        <li>
+          <p className="text-primary-400">{text1}</p>
+        </li>
+        <li>
+          <p className="text-primary-400">{text2}</p>
+        </li>
+        <li>
+          <p className="text-primary-400">{text3}</p>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 function ImageCard() {}
 
 function colorAdjust(hexValue, multMod) {
@@ -141,6 +159,20 @@ function App() {
         <div className="even-columns | bg-accent-400">
           {InvertedRegularSection(testHeader, ArbitraryBinary(200))}
           {InvertedRegularSection(testHeader, ArbitraryBinary(200))}
+        </div>
+      </div>
+      <div className="container">
+        <div className="even-columns">
+          {BulletPoints3(
+            ArbitraryBinary(200),
+            ArbitraryBinary(200),
+            ArbitraryBinary(200)
+          )}
+          {BulletPoints3(
+            ArbitraryBinary(200),
+            ArbitraryBinary(200),
+            ArbitraryBinary(200)
+          )}
         </div>
       </div>
     </div>
