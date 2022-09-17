@@ -1,6 +1,6 @@
 import "../App.css";
 
-import { setPalette } from "../App";
+import { getCurrentTheme, getCurrentThemeIsDark, setPalette } from "../App";
 
 import { useState } from "react";
 import { ReactComponent as Hamburger } from "../images/menu.svg";
@@ -9,6 +9,7 @@ import { ReactComponent as IceCream } from "../images/theme-logos/ice-cream.svg"
 import { ReactComponent as Rocket } from "../images/theme-logos/rocket.svg";
 import { ReactComponent as Leaf } from "../images/theme-logos/leaf.svg";
 import { ReactComponent as Business } from "../images/theme-logos/business.svg";
+import { ReactComponent as Hacker } from "../images/theme-logos/glasses.svg";
 
 export function Header() {
   const [navVisible, setNavVisible] = useState(true);
@@ -19,13 +20,21 @@ export function Header() {
 
   function HeaderNav() {
     let navClass = "header-navigation";
+    let dataShadowColor = "";
     if (!navVisible) {
       navClass += " | hide-small";
+    }
+    if (getCurrentThemeIsDark()) {
+      dataShadowColor += "background";
     }
 
     return (
       <>
-        <nav className={navClass} id="header-navigation">
+        <nav
+          className={navClass}
+          id="header-navigation"
+          data-shadow-color={dataShadowColor}
+        >
           <ul aria-label="Primary" role={"list"} className="nav-list">
             <li>
               <a className="nav-item" href="#">
@@ -51,6 +60,11 @@ export function Header() {
                   className="nav-svg"
                   onClick={clickedSVG("business")}
                 />
+              </a>
+            </li>
+            <li>
+              <a className="nav-item" href="#">
+                <Hacker className="nav-svg" onClick={clickedSVG("hacker")} />
               </a>
             </li>
           </ul>

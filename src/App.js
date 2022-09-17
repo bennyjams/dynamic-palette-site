@@ -2,7 +2,8 @@ import "./App.css";
 
 let root = document.querySelector(":root");
 
-let currentPalette = "standard";
+let currentTheme = "standard";
+let currentThemeIsDark = false;
 
 let berry = "#112233";
 
@@ -21,6 +22,13 @@ function ArbitraryBinary(characters) {
   return ret;
 }
 
+export function getCurrentTheme() {
+  return currentTheme;
+}
+export function getCurrentThemeIsDark() {
+  return currentThemeIsDark;
+}
+
 // colorAdjust("#123456", 1.2)
 export function setPalette(newPalette) {
   let standard = {
@@ -31,6 +39,7 @@ export function setPalette(newPalette) {
     bkg: "#f7efec",
     modUp: 1.1,
     modDown: 0.9,
+    dark: false,
   };
   let candy = {
     name: "candy",
@@ -40,6 +49,7 @@ export function setPalette(newPalette) {
     bkg: "#ecf8ff",
     modUp: 1.1,
     modDown: 0.9,
+    dark: false,
   };
   let forest = {
     name: "forest",
@@ -49,15 +59,27 @@ export function setPalette(newPalette) {
     bkg: "#dcf5f3",
     modUp: 1.1,
     modDown: 0.9,
+    dark: false,
   };
   let business = {
     name: "business",
-    pri: "#fee3a3",
+    pri: "#dbd9c4",
     acc: "#a2aade",
-    neu: "#21217d",
+    neu: "#353580",
     bkg: "#37627d",
     modUp: 1.1,
-    modDown: 0.9,
+    modDown: 0.7,
+    dark: true,
+  };
+  let hacker = {
+    name: "hacker",
+    pri: "#60f51b",
+    acc: "#2d9615",
+    neu: "#1a1b1c",
+    bkg: "#1a1b1c",
+    modUp: 1.1,
+    modDown: 0.7,
+    dark: true,
   };
 
   function setColors(theme) {
@@ -69,20 +91,52 @@ export function setPalette(newPalette) {
       --clr-acc-400: ${colorAdjust(theme.acc, 1)};
       --clr-acc-500: ${colorAdjust(theme.acc, theme.modDown)};
       --clr-neu-400: ${theme.neu};
+      --clr-bkg-300: ${colorAdjust(theme.bkg, theme.modUp)};
       --clr-bkg-400: ${theme.bkg};
+      --clr-bkg-500: ${colorAdjust(theme.bkg, theme.modDown)};
       `
     );
-    currentPalette = theme.name;
+    currentTheme = theme.name;
+    currentThemeIsDark = theme.dark;
+  }
+
+  function UpdateShadows(isdark) {
+    if (isdark) {
+      document
+        .querySelectorAll("button")
+        .forEach((node) =>
+          node.setAttribute(`data-shadow-color`, "background")
+        );
+      document
+        .querySelectorAll(".header-navigation")
+        .forEach((node) =>
+          node.setAttribute(`data-shadow-color`, "background")
+        );
+    } else {
+      document
+        .querySelectorAll("button")
+        .forEach((node) => node.setAttribute(`data-shadow-color`, ""));
+      document
+        .querySelectorAll(".header-navigation")
+        .forEach((node) => node.setAttribute(`data-shadow-color`, ""));
+    }
   }
 
   if (newPalette === "standard") {
     setColors(standard);
+    UpdateShadows(false);
   } else if (newPalette === "candy") {
     setColors(candy);
+    UpdateShadows(false);
   } else if (newPalette === "forest") {
     setColors(forest);
+    UpdateShadows(false);
   } else if (newPalette === "business") {
     setColors(business);
+    UpdateShadows(true);
+  } else if (newPalette === "hacker") {
+    setColors(hacker);
+    UpdateShadows(true);
   }
 
   // if (currentPalette === "standard") {
@@ -102,7 +156,7 @@ function RegularSection(headerText, bodyText) {
           {headerText}
         </h1>
         <p className="text-primary-400">{bodyText}</p>
-        <button onClick={setPalette} className="button">
+        <button onClick={setPalette} className="button" id="button">
           Let's Go!
         </button>
       </div>
@@ -117,7 +171,12 @@ function InvertedRegularSection(headerText, bodyText) {
           {headerText}
         </h1>
         <p className="text-background-400">{bodyText}</p>
-        <button onClick={setPalette} className="button" data-type="inverted">
+        <button
+          onClick={setPalette}
+          className="button"
+          id="button"
+          data-type="inverted"
+        >
           Let's Go!
         </button>
       </div>

@@ -66,7 +66,9 @@ export function Footer() {
             </nav>
             <div className="footer-input-wrapper">
               <input className="footer-input" />
-              <button className="button">Go</button>
+              <button className="button" data-shadow="none">
+                Go
+              </button>
             </div>
 
             <p className="copyright">Copyright 2022. All Rights Reserved</p>
