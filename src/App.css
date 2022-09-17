@@ -217,6 +217,17 @@ body {
   fill: var(--clr-pri-400);
 }
 
+.nav-svg {
+  width: var(--size-650);
+  aspect-ratio: 1;
+  color: var(--clr-pri-400);
+  fill: var(--clr-pri-400);
+}
+.nav-svg :where(:hover, :focus) {
+  color: var(--clr-acc-400);
+  fill: var(--clr-acc-400);
+}
+
 @media (max-width: 50em) {
   .header-navigation {
     position: fixed;

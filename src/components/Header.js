@@ -1,10 +1,21 @@
 import "../App.css";
+
+import { setPalette } from "../App";
+
 import { useState } from "react";
 import { ReactComponent as Hamburger } from "../images/menu.svg";
 import { ReactComponent as Close } from "../images/close.svg";
+import { ReactComponent as IceCream } from "../images/theme-logos/ice-cream.svg";
+import { ReactComponent as Rocket } from "../images/theme-logos/rocket.svg";
+import { ReactComponent as Leaf } from "../images/theme-logos/leaf.svg";
+import { ReactComponent as Business } from "../images/theme-logos/business.svg";
 
 export function Header() {
   const [navVisible, setNavVisible] = useState(true);
+
+  const clickedSVG = (parameter) => (event) => {
+    setPalette(parameter);
+  };
 
   function HeaderNav() {
     let navClass = "header-navigation";
@@ -18,22 +29,28 @@ export function Header() {
           <ul aria-label="Primary" role={"list"} className="nav-list">
             <li>
               <a className="nav-item" href="#">
-                A
+                <Rocket className="nav-svg" onClick={clickedSVG("standard")} />
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-item"
+                // href="#"
+              >
+                <IceCream className="nav-svg" onClick={clickedSVG("candy")} />
               </a>
             </li>
             <li>
               <a className="nav-item" href="#">
-                B
+                <Leaf className="nav-svg" onClick={clickedSVG("forest")} />
               </a>
             </li>
             <li>
               <a className="nav-item" href="#">
-                C
-              </a>
-            </li>
-            <li>
-              <a className="nav-item" href="#">
-                D
+                <Business
+                  className="nav-svg"
+                  onClick={clickedSVG("business")}
+                />
               </a>
             </li>
           </ul>

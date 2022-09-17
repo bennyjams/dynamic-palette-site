@@ -22,7 +22,7 @@ function ArbitraryBinary(characters) {
 }
 
 // colorAdjust("#123456", 1.2)
-function setPalette(theme) {
+export function setPalette(newPalette) {
   let standard = {
     name: "standard",
     pri: "#1c1f2b",
@@ -50,6 +50,15 @@ function setPalette(theme) {
     modUp: 1.1,
     modDown: 0.9,
   };
+  let business = {
+    name: "business",
+    pri: "#fee3a3",
+    acc: "#a2aade",
+    neu: "#21217d",
+    bkg: "#37627d",
+    modUp: 1.1,
+    modDown: 0.9,
+  };
 
   function setColors(theme) {
     root.setAttribute(
@@ -66,13 +75,23 @@ function setPalette(theme) {
     currentPalette = theme.name;
   }
 
-  if (currentPalette === "standard") {
-    setColors(candy);
-  } else if (currentPalette === "candy") {
-    setColors(forest);
-  } else {
+  if (newPalette === "standard") {
     setColors(standard);
+  } else if (newPalette === "candy") {
+    setColors(candy);
+  } else if (newPalette === "forest") {
+    setColors(forest);
+  } else if (newPalette === "business") {
+    setColors(business);
   }
+
+  // if (currentPalette === "standard") {
+  //   setColors(candy);
+  // } else if (currentPalette === "candy") {
+  //   setColors(forest);
+  // } else {
+  //   setColors(standard);
+  // }
 }
 
 function RegularSection(headerText, bodyText) {
