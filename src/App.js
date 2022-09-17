@@ -63,12 +63,12 @@ export function setPalette(newPalette) {
   };
   let business = {
     name: "business",
-    pri: "#dbd9c4",
-    acc: "#a2aade",
+    pri: "#e0d3cc",
+    acc: "#f58f54",
     neu: "#353580",
     bkg: "#37627d",
     modUp: 1.1,
-    modDown: 0.7,
+    modDown: 0.5,
     dark: true,
   };
   let hacker = {
@@ -88,7 +88,7 @@ export function setPalette(newPalette) {
     neu: "#3b4699",
     bkg: "#15255e",
     modUp: 1.1,
-    modDown: 0.7,
+    modDown: 0.1,
     dark: true,
   };
   let poison = {
@@ -174,6 +174,31 @@ export function setPalette(newPalette) {
   // }
 }
 
+function setRandomColors() {
+  let pri = colorRand(0.5);
+  let acc = colorRand(2);
+  let neu = colorRand(3);
+  let bkg = colorRand(4);
+
+  console.log(pri, acc, neu, bkg);
+
+  root.setAttribute(
+    "style",
+    `
+    --clr-pri-400: ${pri};
+    --clr-acc-300: ${colorAdjust(acc, 1.2)};
+    --clr-acc-400: ${colorAdjust(acc, 1)};
+    --clr-acc-500: ${colorAdjust(acc, 0.8)};
+    --clr-neu-400: ${neu};
+    --clr-bkg-300: ${colorAdjust(bkg, 1.2)};
+    --clr-bkg-400: ${bkg};
+    --clr-bkg-500: ${colorAdjust(bkg, 0.8)};
+    `
+  );
+  currentTheme = "random";
+  currentThemeIsDark = true;
+}
+
 function RegularSection(headerText, bodyText) {
   return (
     <>
@@ -182,7 +207,7 @@ function RegularSection(headerText, bodyText) {
           {headerText}
         </h1>
         <p className="text-primary-400">{bodyText}</p>
-        <button onClick={setPalette} className="button" id="button">
+        <button onClick={setRandomColors} className="button" id="button">
           Let's Go!
         </button>
       </div>
@@ -198,7 +223,7 @@ function InvertedRegularSection(headerText, bodyText) {
         </h1>
         <p className="text-background-400">{bodyText}</p>
         <button
-          onClick={setPalette}
+          onClick={setRandomColors}
           className="button"
           id="button"
           data-type="inverted"
@@ -244,11 +269,36 @@ function colorAdjust(hexValue, multMod) {
 
     el = parseInt(el).toString(16);
 
-    //console.log(el);
+    if (el.length < 2) {
+      el = "0" + el;
+    }
+
     thisArr[i] = el;
   });
 
   //console.log("#" + arr[0] + arr[1] + arr[2]);
+  return "#" + arr[0] + arr[1] + arr[2];
+}
+
+function colorRand(multMod) {
+  let arr = [0, 0, 0];
+
+  arr.forEach((el, i, thisArr) => {
+    el = parseInt(Math.random() * 64);
+
+    el *= multMod;
+
+    el > 255 ? (el = 255) : (el = el);
+    el < 0 ? (el = 0) : (el = el);
+
+    el = parseInt(el).toString(16);
+
+    if (el.length < 2) {
+      el = "0" + el;
+    }
+
+    thisArr[i] = el;
+  });
   return "#" + arr[0] + arr[1] + arr[2];
 }
 

@@ -218,6 +218,9 @@ body {
   aspect-ratio: 1;
   color: var(--clr-pri-400);
   fill: var(--clr-pri-400);
+  border-radius: 10px;
+  background-color: var(--clr-bkg-400);
+  box-shadow: 0 0 0 2px var(--clr-bkg-400);
 }
 
 .nav-svg {
