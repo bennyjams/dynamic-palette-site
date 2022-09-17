@@ -185,7 +185,7 @@ body {
 
 .nav-list {
   display: flex;
-  gap: clamp(1rem, 10vw, 8rem);
+  gap: clamp(1rem, 5vw, 8rem);
   font-weight: var(--fw-bold);
 }
 .nav-list a {
@@ -254,11 +254,13 @@ body {
   .nav-list {
     display: grid;
     width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .nav-list li {
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin-inline: auto;
   }
 
   .mobile-nav-toggle {

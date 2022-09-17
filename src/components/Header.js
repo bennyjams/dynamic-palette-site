@@ -10,6 +10,8 @@ import { ReactComponent as Rocket } from "../images/theme-logos/rocket.svg";
 import { ReactComponent as Leaf } from "../images/theme-logos/leaf.svg";
 import { ReactComponent as Business } from "../images/theme-logos/business.svg";
 import { ReactComponent as Hacker } from "../images/theme-logos/glasses.svg";
+import { ReactComponent as Moon } from "../images/theme-logos/moon.svg";
+import { ReactComponent as Skull } from "../images/theme-logos/skull.svg";
 
 export function Header() {
   const [navVisible, setNavVisible] = useState(true);
@@ -37,25 +39,22 @@ export function Header() {
         >
           <ul aria-label="Primary" role={"list"} className="nav-list">
             <li>
-              <a className="nav-item" href="#">
+              <a className="nav-item">
                 <Rocket className="nav-svg" onClick={clickedSVG("standard")} />
               </a>
             </li>
             <li>
-              <a
-                className="nav-item"
-                // href="#"
-              >
+              <a className="nav-item">
                 <IceCream className="nav-svg" onClick={clickedSVG("candy")} />
               </a>
             </li>
             <li>
-              <a className="nav-item" href="#">
+              <a className="nav-item">
                 <Leaf className="nav-svg" onClick={clickedSVG("forest")} />
               </a>
             </li>
             <li>
-              <a className="nav-item" href="#">
+              <a className="nav-item">
                 <Business
                   className="nav-svg"
                   onClick={clickedSVG("business")}
@@ -63,8 +62,18 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a className="nav-item" href="#">
+              <a className="nav-item">
                 <Hacker className="nav-svg" onClick={clickedSVG("hacker")} />
+              </a>
+            </li>
+            <li>
+              <a className="nav-item">
+                <Moon className="nav-svg" onClick={clickedSVG("night")} />
+              </a>
+            </li>
+            <li>
+              <a className="nav-item">
+                <Skull className="nav-svg" onClick={clickedSVG("poison")} />
               </a>
             </li>
           </ul>

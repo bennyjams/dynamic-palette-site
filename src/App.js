@@ -81,6 +81,26 @@ export function setPalette(newPalette) {
     modDown: 0.7,
     dark: true,
   };
+  let night = {
+    name: "night",
+    pri: "#f2eed5",
+    acc: "#808ded",
+    neu: "#3b4699",
+    bkg: "#15255e",
+    modUp: 1.1,
+    modDown: 0.7,
+    dark: true,
+  };
+  let poison = {
+    name: "poison",
+    pri: "#94fcb3",
+    acc: "#53cc45",
+    neu: "#775fe0",
+    bkg: "#471fa3",
+    modUp: 1.1,
+    modDown: 0.7,
+    dark: true,
+  };
 
   function setColors(theme) {
     root.setAttribute(
@@ -136,6 +156,12 @@ export function setPalette(newPalette) {
     UpdateShadows(true);
   } else if (newPalette === "hacker") {
     setColors(hacker);
+    UpdateShadows(true);
+  } else if (newPalette === "night") {
+    setColors(night);
+    UpdateShadows(true);
+  } else if (newPalette === "poison") {
+    setColors(poison);
     UpdateShadows(true);
   }
 
