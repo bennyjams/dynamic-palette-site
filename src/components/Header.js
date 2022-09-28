@@ -14,7 +14,7 @@ import { ReactComponent as Moon } from "../images/theme-logos/moon.svg";
 import { ReactComponent as Skull } from "../images/theme-logos/skull.svg";
 
 export function Header() {
-  const [navVisible, setNavVisible] = useState(true);
+  const [navVisible, setNavVisible] = useState(false);
 
   const clickedSVG = (parameter) => (event) => {
     setPalette(parameter);
