@@ -1,6 +1,7 @@
 import "../App.css";
 
-import { getCurrentTheme, getCurrentThemeIsDark, setPalette } from "../App";
+import { getCurrentTheme, getCurrentThemeIsDark } from "../App";
+import { setPalette } from "../Palettes";
 
 import { useState } from "react";
 import { ReactComponent as Hamburger } from "../images/menu.svg";

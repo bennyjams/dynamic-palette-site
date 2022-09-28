@@ -1,3 +1,7 @@
+import { setCurrentTheme } from "./App";
+
+let root = document.querySelector(":root");
+
 export let paletteArray = [
   {
     name: "standard",
@@ -70,6 +74,128 @@ export let paletteArray = [
     dark: true,
   },
 ];
+
+//
+
+export function setPalette(newPalette) {
+  function setColors(theme) {
+    root.setAttribute(
+      "style",
+      `
+        --clr-pri-400: ${theme.pri};
+        --clr-acc-300: ${colorAdjust(theme.acc, theme.modUp)};
+        --clr-acc-400: ${colorAdjust(theme.acc, 1)};
+        --clr-acc-500: ${colorAdjust(theme.acc, theme.modDown)};
+        --clr-neu-400: ${theme.neu};
+        --clr-bkg-300: ${colorAdjust(theme.bkg, theme.modUp)};
+        --clr-bkg-400: ${theme.bkg};
+        --clr-bkg-500: ${colorAdjust(theme.bkg, theme.modDown)};
+        `
+    );
+  }
+
+  function UpdateShadows(isdark) {
+    if (isdark) {
+      document
+        .querySelectorAll("button")
+        .forEach((node) =>
+          node.setAttribute(`data-shadow-color`, "background")
+        );
+      document
+        .querySelectorAll(".header-navigation")
+        .forEach((node) =>
+          node.setAttribute(`data-shadow-color`, "background")
+        );
+    } else {
+      document
+        .querySelectorAll("button")
+        .forEach((node) => node.setAttribute(`data-shadow-color`, ""));
+      document
+        .querySelectorAll(".header-navigation")
+        .forEach((node) => node.setAttribute(`data-shadow-color`, ""));
+    }
+  }
+
+  let paletteRef = paletteArray.find(({ name }) => {
+    return name === newPalette;
+  });
+
+  setColors(paletteRef);
+  UpdateShadows(paletteRef.dark);
+  setCurrentTheme(paletteRef);
+}
+
+export function setRandomColors() {
+  let pri = colorRand(0.5);
+  let acc = colorRand(2);
+  let neu = colorRand(3);
+  let bkg = colorRand(4);
+
+  console.log(pri, acc, neu, bkg);
+
+  root.setAttribute(
+    "style",
+    `
+      --clr-pri-400: ${pri};
+      --clr-acc-300: ${colorAdjust(acc, 1.2)};
+      --clr-acc-400: ${colorAdjust(acc, 1)};
+      --clr-acc-500: ${colorAdjust(acc, 0.8)};
+      --clr-neu-400: ${neu};
+      --clr-bkg-300: ${colorAdjust(bkg, 1.2)};
+      --clr-bkg-400: ${bkg};
+      --clr-bkg-500: ${colorAdjust(bkg, 0.8)};
+      `
+  );
+}
+
+export function colorAdjust(hexValue, multMod) {
+  hexValue = hexValue.slice(1);
+  let arr = [0, 0, 0];
+
+  arr.forEach((el, i, thisArr) => {
+    el = Number("0x" + hexValue.slice(i * 2, i * 2 + 2));
+
+    el *= multMod;
+
+    el > 255 ? (el = 255) : (el = el);
+    el < 0 ? (el = 0) : (el = el);
+
+    el = parseInt(el).toString(16);
+
+    if (el.length < 2) {
+      el = "0" + el;
+    }
+
+    thisArr[i] = el;
+  });
+
+  //console.log("#" + arr[0] + arr[1] + arr[2]);
+  return "#" + arr[0] + arr[1] + arr[2];
+}
+
+export function colorRand(multMod) {
+  let arr = [0, 0, 0];
+
+  arr.forEach((el, i, thisArr) => {
+    el = parseInt(Math.random() * 64);
+
+    el *= multMod;
+
+    el > 255 ? (el = 255) : (el = el);
+    el < 0 ? (el = 0) : (el = el);
+
+    el = parseInt(el).toString(16);
+
+    if (el.length < 2) {
+      el = "0" + el;
+    }
+
+    thisArr[i] = el;
+  });
+  return "#" + arr[0] + arr[1] + arr[2];
+}
+
+//
 
 export function getAllPalettes() {
   return paletteArray;
