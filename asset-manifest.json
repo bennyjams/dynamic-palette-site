@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/dynamic-palette-site/static/css/main.9b54b08a.css",
+    "main.js": "/dynamic-palette-site/static/js/main.5bce74b7.js",
+    "static/js/787.c0d2bce1.chunk.js": "/dynamic-palette-site/static/js/787.c0d2bce1.chunk.js",
+    "static/media/logo-react.svg": "/dynamic-palette-site/static/media/logo-react.b9eb460cc16b08138588f95b455776b1.svg",
+    "static/media/business.svg": "/dynamic-palette-site/static/media/business.81c1f5058628b308a833a5ad19504f84.svg",
+    "static/media/rocket.svg": "/dynamic-palette-site/static/media/rocket.87118cb0b162c0390a7898e5f13cc22e.svg",
+    "index.html": "/dynamic-palette-site/index.html",
+    "static/media/skull.svg": "/dynamic-palette-site/static/media/skull.6c7ac1398b884a9ee3bfaf127cb5afe3.svg",
+    "static/media/logo-github.svg": "/dynamic-palette-site/static/media/logo-github.080591513b1a3eb8fdfe0257830eaff1.svg",
+    "static/media/glasses.svg": "/dynamic-palette-site/static/media/glasses.673ff6a3258413942830a2d66056de18.svg",
+    "static/media/leaf.svg": "/dynamic-palette-site/static/media/leaf.f759ef2ed75f3e463807c0c21ae38121.svg",
+    "static/media/ice-cream.svg": "/dynamic-palette-site/static/media/ice-cream.e842ce24527b01728123eb5e4bcb0b7c.svg",
+    "static/media/logo-ionic.svg": "/dynamic-palette-site/static/media/logo-ionic.5b49b4d8d6e4a523b1cfb86511a55770.svg",
+    "static/media/moon.svg": "/dynamic-palette-site/static/media/moon.dc728de5ea2f62168f0530f4cfef7bd9.svg",
+    "static/media/logo-css3.svg": "/dynamic-palette-site/static/media/logo-css3.f4091cab97809b57343315d0324460dd.svg",
+    "static/media/logo-html5.svg": "/dynamic-palette-site/static/media/logo-html5.2dbc91d088f0b95422b1b096a52dff46.svg",
+    "static/media/menu.svg": "/dynamic-palette-site/static/media/menu.20eda71e4f081d6a6caf28091eb62718.svg",
+    "static/media/close.svg": "/dynamic-palette-site/static/media/close.49ba6b16c4e11db067288bd382719aa4.svg",
+    "main.9b54b08a.css.map": "/dynamic-palette-site/static/css/main.9b54b08a.css.map",
+    "main.5bce74b7.js.map": "/dynamic-palette-site/static/js/main.5bce74b7.js.map",
+    "787.c0d2bce1.chunk.js.map": "/dynamic-palette-site/static/js/787.c0d2bce1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b54b08a.css",
+    "static/js/main.5bce74b7.js"
+  ]
+}
