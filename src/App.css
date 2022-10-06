@@ -113,7 +113,15 @@ body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--clr-primary-400);
-  background: var(--clr-bkg-400);
+  /* background: var(--clr-bkg-400); */
+
+  background: repeating-radial-gradient(
+    circle at 0 200%,
+    var(--clr-bkg-400),
+    var(--clr-bkg-400) 50px,
+    var(--clr-bkg-300) 50px,
+    var(--clr-bkg-300) 100px
+  );
 }
 
 .container {
@@ -477,6 +485,14 @@ body {
 
 .inverted-ribbon {
   background-color: var(--clr-acc-400);
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--clr-acc-400),
+    var(--clr-acc-400) 20px,
+    var(--clr-acc-500) 20px,
+    var(--clr-acc-500) 40px
+  );
 }
 
 .bg-primary-400 {

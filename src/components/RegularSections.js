@@ -16,7 +16,7 @@ export function RegularSection(headerText, bodyText, buttonFunc) {
 export function InvertedRegularSection(headerText, bodyText, buttonFunc) {
   return (
     <>
-      <div className="title-p-button">
+      <div className="title-p-button" datatype="inverted">
         <h1 className="fs-primary-heading fw-bold text-background-400">
           {headerText}
         </h1>
