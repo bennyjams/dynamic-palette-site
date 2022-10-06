@@ -138,7 +138,9 @@ export function setRandomColors() {
   root.setAttribute(
     "style",
     `
-      --clr-pri-400: ${pri};
+      --clr-pri-300: ${colorAdjust(pri, 1.2)};
+      --clr-pri-400: ${colorAdjust(pri, 1)};
+      --clr-pri-500: ${colorAdjust(pri, 0.8)};
       --clr-acc-300: ${colorAdjust(acc, 1.2)};
       --clr-acc-400: ${colorAdjust(acc, 1)};
       --clr-acc-500: ${colorAdjust(acc, 0.8)};

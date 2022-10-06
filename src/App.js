@@ -53,6 +53,8 @@ export function getCurrentThemeIsDark() {
 let offset = 0;
 let body = document.querySelector("body");
 
+let out = true;
+
 export function gradientShift(size) {
   // body.setAttribute(
   //   "style",
@@ -61,12 +63,27 @@ export function gradientShift(size) {
   //   );`
   // );
 
+  // body.setAttribute(
+  //   "style",
+  //   `
+
+  //     background: repeating-radial-gradient(
+  //       circle at -4000% -8000%,
+  //       var(--clr-bkg-300),
+  //       var(--clr-bkg-300) ${offset}px,
+  //       var(--clr-bkg-400) ${offset}px,
+  //       var(--clr-bkg-400) ${offset + size}px,
+  //       var(--clr-bkg-300) ${offset + size}px,
+  //       var(--clr-bkg-300) ${offset + 2 * size}px
+  //   );`
+  // );
+
   body.setAttribute(
     "style",
     `
       
-      background: repeating-radial-gradient(
-        circle at -4000% -8000%,
+      background: repeating-linear-gradient(
+        -45deg,
         var(--clr-bkg-300),
         var(--clr-bkg-300) ${offset}px,
         var(--clr-bkg-400) ${offset}px,
@@ -85,9 +102,17 @@ export function gradientShift(size) {
   //   var(--clr-bkg-300) ${offset + size}px,
   //   var(--clr-bkg-300) ${offset + 2 * size}px
 
-  offset += 0.0025;
-  if (offset >= 0.12) {
-    offset = 0;
+  if (out) {
+    offset += 0.1 + 0.01 * offset;
+  } else {
+    offset -= 0.001 + 0.09 * offset;
+  }
+
+  if (offset >= 20) {
+    out = false;
+  }
+  if (offset <= 0) {
+    out = true;
   }
 }
 

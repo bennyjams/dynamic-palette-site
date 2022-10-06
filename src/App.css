@@ -306,6 +306,8 @@ body {
 
 .title-p-button {
   padding: 1rem;
+
+  text-shadow: var(--clr-pri-500) 0px 0px 8px;
 }
 .title-p-button h1 {
 }
