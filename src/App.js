@@ -50,6 +50,60 @@ export function getCurrentThemeIsDark() {
 }
 
 //
+let offset = 0;
+let body = document.querySelector("body");
+
+export function gradientShift(size) {
+  // body.setAttribute(
+  //   "style",
+  //   `
+  //     background: rgb(${offset},${offset},${offset});
+  //   );`
+  // );
+
+  body.setAttribute(
+    "style",
+    `
+      
+      background: repeating-radial-gradient(
+        circle at -4000% -8000%,
+        var(--clr-bkg-300),
+        var(--clr-bkg-300) ${offset}px,
+        var(--clr-bkg-400) ${offset}px,
+        var(--clr-bkg-400) ${offset + size}px,
+        var(--clr-bkg-300) ${offset + size}px,
+        var(--clr-bkg-300) ${offset + 2 * size}px
+    );`
+  );
+
+  // backround: repeating-radial-gradient(
+  //   circle at 0 -100%,
+  //   var(--clr-bkg-300),
+  //   var(--clr-bkg-300) ${offset}px,
+  //   var(--clr-bkg-400) ${offset}px,
+  //   var(--clr-bkg-400) ${offset + size}px,
+  //   var(--clr-bkg-300) ${offset + size}px,
+  //   var(--clr-bkg-300) ${offset + 2 * size}px
+
+  offset += 0.0025;
+  if (offset >= 0.12) {
+    offset = 0;
+  }
+}
+
+function startGradientShift() {
+  requestAnimationFrame((e) => {
+    console.log(offset);
+    gradientShift(50);
+  });
+}
+
+setPalette("standard");
+startGradientShift();
+
+window.setInterval(startGradientShift, 50);
+
+//
 
 function App() {
   return (

@@ -115,9 +115,29 @@ body {
   color: var(--clr-primary-400);
   /* background: var(--clr-bkg-400); */
 
-  background: repeating-radial-gradient(
+  /* background: repeating-radial-gradient(
     circle at 0 200%,
     var(--clr-bkg-400),
+    var(--clr-bkg-400) 50px,
+    var(--clr-bkg-300) 50px,
+    var(--clr-bkg-300) 100px
+  ); */
+
+  /* background: repeating-radial-gradient(
+    circle at 0 200%,
+    var(--clr-bkg-300),
+    var(--clr-bkg-300) 20px,
+    var(--clr-bkg-400) 20px,
+    var(--clr-bkg-400) 70px,
+    var(--clr-bkg-300) 70px,
+    var(--clr-bkg-300) 120px
+  ); */
+
+  background: repeating-radial-gradient(
+    circle at 0 200%,
+    var(--clr-bkg-300),
+    var(--clr-bkg-300) 2px,
+    var(--clr-bkg-400) 2px,
     var(--clr-bkg-400) 50px,
     var(--clr-bkg-300) 50px,
     var(--clr-bkg-300) 100px
