@@ -9,8 +9,8 @@ export let paletteArray = [
     acc: "#f25f3a",
     neu: "#f5cdc1",
     bkg: "#f7efec",
-    modUp: 1.1,
-    modDown: 0.9,
+    modUp: 1.2,
+    modDown: 0.7,
     dark: false,
   },
   {
@@ -82,7 +82,9 @@ export function setPalette(newPalette) {
     root.setAttribute(
       "style",
       `
-        --clr-pri-400: ${theme.pri};
+      --clr-pri-300: ${colorAdjust(theme.pri, theme.modUp)};
+      --clr-pri-400: ${colorAdjust(theme.pri, 1)};
+      --clr-pri-500: ${colorAdjust(theme.pri, theme.modDown)};
         --clr-acc-300: ${colorAdjust(theme.acc, theme.modUp)};
         --clr-acc-400: ${colorAdjust(theme.acc, 1)};
         --clr-acc-500: ${colorAdjust(theme.acc, theme.modDown)};
@@ -136,7 +138,9 @@ export function setRandomColors() {
   root.setAttribute(
     "style",
     `
-      --clr-pri-400: ${pri};
+      --clr-pri-300: ${colorAdjust(pri, 1.2)};
+      --clr-pri-400: ${colorAdjust(pri, 1)};
+      --clr-pri-500: ${colorAdjust(pri, 0.8)};
       --clr-acc-300: ${colorAdjust(acc, 1.2)};
       --clr-acc-400: ${colorAdjust(acc, 1)};
       --clr-acc-500: ${colorAdjust(acc, 0.8)};
