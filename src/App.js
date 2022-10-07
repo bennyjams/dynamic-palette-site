@@ -53,9 +53,12 @@ export function getCurrentThemeIsDark() {
 let offset = 0;
 let body = document.querySelector("body");
 
+let bkg;
+
 let out = true;
 
 export function gradientShift(size) {
+  bkg = document.querySelector(".background-lines");
   // body.setAttribute(
   //   "style",
   //   `
@@ -78,18 +81,23 @@ export function gradientShift(size) {
   //   );`
   // );
 
-  body.setAttribute(
+  body.setAttribute("style", `background: transparent;`);
+  bkg.setAttribute(
     "style",
     `
-      
-      background: repeating-linear-gradient(
-        -45deg,
+      z-index: -1;
+      top: 0px;
+      left: ${-200 + offset}px;
+      width: 200vw;
+      min-height: 100%;
+      position: fixed;
+      background: 
+      repeating-linear-gradient(
+        -.09turn,
         var(--clr-bkg-300),
-        var(--clr-bkg-300) ${offset}px,
-        var(--clr-bkg-400) ${offset}px,
-        var(--clr-bkg-400) ${offset + size}px,
-        var(--clr-bkg-300) ${offset + size}px,
-        var(--clr-bkg-300) ${offset + 2 * size}px
+        var(--clr-bkg-300) ${size}px,
+        var(--clr-bkg-400) ${size}px,
+        var(--clr-bkg-400) ${2 * size}px
     );`
   );
 
@@ -102,23 +110,25 @@ export function gradientShift(size) {
   //   var(--clr-bkg-300) ${offset + size}px,
   //   var(--clr-bkg-300) ${offset + 2 * size}px
 
-  if (out) {
-    offset += 0.1 + 0.01 * offset;
-  } else {
-    offset -= 0.001 + 0.09 * offset;
-  }
+  // if (out) {
+  //   offset += 0.1 + 0.01 * offset;
+  // } else {
+  //   offset -= 0.001 + 0.09 * offset;
+  // }
 
-  if (offset >= 20) {
-    out = false;
-  }
-  if (offset <= 0) {
-    out = true;
-  }
+  // if (offset >= 20) {
+  //   out = false;
+  // }
+  // if (offset <= 0) {
+  //   out = true;
+  // }
+
+  offset += 1;
+  if (offset >= 4 * size - 15) offset = 0;
 }
 
 function startGradientShift() {
   requestAnimationFrame((e) => {
-    console.log(offset);
     gradientShift(50);
   });
 }
@@ -132,37 +142,42 @@ window.setInterval(startGradientShift, 50);
 
 function App() {
   return (
-    <div className="container">
-      <div className="even-columns">
-        {RegularSection(testHeader, testBody, setRandomColors)}
-        {RegularSection(testHeader, testBody, setRandomColors)}
-      </div>
-      <div className="inverted-ribbon">
-        <div className="even-columns | bg-accent-400">
-          {InvertedRegularSection(
-            testHeader,
-            ArbitraryBinary(200),
-            setRandomColors
-          )}
-          {InvertedRegularSection(
-            testHeader,
-            ArbitraryBinary(200),
-            setRandomColors
-          )}
-        </div>
+    <div>
+      <div className="background-overflow">
+        <div className="background-lines"></div>
       </div>
       <div className="container">
         <div className="even-columns">
-          {BulletPoints3(
-            ArbitraryBinary(200),
-            ArbitraryBinary(200),
-            ArbitraryBinary(200)
-          )}
-          {BulletPoints3(
-            ArbitraryBinary(200),
-            ArbitraryBinary(200),
-            ArbitraryBinary(200)
-          )}
+          {RegularSection(testHeader, testBody, setRandomColors)}
+          {RegularSection(testHeader, testBody, setRandomColors)}
+        </div>
+        <div className="inverted-ribbon">
+          <div className="even-columns | bg-accent-400">
+            {InvertedRegularSection(
+              testHeader,
+              ArbitraryBinary(200),
+              setRandomColors
+            )}
+            {InvertedRegularSection(
+              testHeader,
+              ArbitraryBinary(200),
+              setRandomColors
+            )}
+          </div>
+        </div>
+        <div className="container">
+          <div className="even-columns">
+            {BulletPoints3(
+              ArbitraryBinary(200),
+              ArbitraryBinary(200),
+              ArbitraryBinary(200)
+            )}
+            {BulletPoints3(
+              ArbitraryBinary(200),
+              ArbitraryBinary(200),
+              ArbitraryBinary(200)
+            )}
+          </div>
         </div>
       </div>
     </div>

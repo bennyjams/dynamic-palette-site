@@ -68,8 +68,7 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html,
-body {
+html {
   height: 100%;
 }
 
@@ -113,6 +112,8 @@ body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--clr-primary-400);
+  min-height: 100%;
+
   /* background: var(--clr-bkg-400); */
 
   /* background: repeating-radial-gradient(
@@ -306,8 +307,7 @@ body {
 
 .title-p-button {
   padding: 1rem;
-
-  text-shadow: var(--clr-pri-500) 0px 0px 8px;
+  /* text-shadow: var(--clr-pri-500) 0px 0px 8px; */
 }
 .title-p-button h1 {
 }
@@ -463,6 +463,16 @@ body {
 }
 
 /* UTILITY CLASSES */
+
+.background-overflow {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  /* overflow-x: hidden; */
+}
 
 .visually-hidden {
   position: absolute;
